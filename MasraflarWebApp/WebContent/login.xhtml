@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Sisteme Giriş</title>
+</h:head>
+<h:body style="background-color:#00CCFF;">
+	<center>
+		<h:form>
+			<p:growl id="growlMessage" showDetail="true"
+				sticky="true"  />
+			<p:panelGrid id="loginPanel" columns="2"
+				style="position: relative;top:200px;left:40px">
+				<f:facet name="header">
+					<h:outputText value="Sisteme Giriş " style="font-size:24px" />
+				</f:facet>
+
+				<h:outputLabel for="kullaniciAdi" value="Kullanıcı Adı:"
+					style="font-size:24px;float:right" />
+				<p:inputText id="kullaniciAdi" value="" label="Kullanıcı Adı"
+					required="true" requiredMessage="Kullanıcı Adını Girmediniz"
+					validatorMessage="Kullanıcı adı en az 5 karakter olacak.">
+					<f:validateLength minimum="5" for="kullaniciAdi" />
+				</p:inputText>
+
+
+				<h:outputLabel for="sifre" value="Şifre:"
+					style="float:right;font-size:24px" />
+				<p:password id="sifre" required="true"
+					requiredMessage="Şifre Girmediniz"
+					validatorMessage="Şifre en az 5 karakter olacak" label="Şifre">
+					<f:validateLength minimum="5" for="sifre" />
+				</p:password>
+
+
+				<f:facet name="footer">
+					<p:commandButton update="growlMessage"  iconPos="left"
+						icon="ui-icon-star" value="GİRİŞ" style="margin:2;float:right;"
+						title="Sisteme Giriş" actionListener="#{growlBean.save}">
+					</p:commandButton>
+				</f:facet>
+			</p:panelGrid>
+		</h:form>
+	</center>
+</h:body>
+</html>
+

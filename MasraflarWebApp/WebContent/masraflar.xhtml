@@ -1,0 +1,133 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Masraf Formu</title>
+</h:head>
+<h:body style="background-color:#00CCFF;">
+	<h:form>
+		<p:tabView effect="fold" effectDuration="normal">
+			<p:tab title="Masraflar Formu">
+				<p:growl id="grwMsg" showDetail="true" sticky="true"></p:growl>
+				<table>
+					<tr>
+						<td><p:panelGrid id="pnlMasraf" columns="2"
+								style="position: relative;margin:2px;border:none">
+								<f:facet name="header">
+									<h:outputText value="Masraf Formu" style="font-size:24px" />
+								</f:facet>
+
+								<h:outputLabel for="trCal" value="Masraf Tarihi:"
+									style="font-size:24px;float:right" />
+								<p:calendar locale="tr" showButtonPanel="true" navigator="true"
+									style="width:300px" id="trCal" required="true"
+									value="#{masraflar.tarih}"
+									requiredMessage="Masraf Tarihini Belirtmelisiniz" />
+
+								<h:outputLabel for="spnTaxi" value="Taxi:"
+									style="float:right;font-size:24px" />
+								<p:column>
+									<p:spinner min="0" stepFactor="0.25" id="spnTaxi"
+										value="#{masraflar.taxi}">
+										<p:ajax update="outToplam" process="@this"></p:ajax>
+									</p:spinner>
+									<h:outputText value="TL" />
+								</p:column>
+
+								<h:outputLabel for="spnYemek" value="Yemek:"
+									style="float:right;font-size:24px" />
+								<p:column>
+									<p:spinner min="0" stepFactor="0.25" id="spnYemek"
+										value="#{masraflar.yemek}">
+										<p:ajax update="outToplam" process="@this"></p:ajax>
+									</p:spinner>
+									<h:outputText value="TL" />
+								</p:column>
+
+								<h:outputLabel for="spnBenzin" value="Benzin:"
+									style="float:right;font-size:24px" />
+								<p:column>
+									<p:spinner min="0" stepFactor="0.25" id="spnBenzin"
+										value="#{masraflar.benzin}">
+										<p:ajax update="outToplam" process="@this"></p:ajax>
+									</p:spinner>
+									<h:outputText value="TL" />
+								</p:column>
+
+								<h:outputLabel for="spnDiger" value="Diğer:"
+									style="float:right;font-size:24px" />
+								<p:column>
+									<p:spinner min="0" stepFactor="0.25" id="spnDiger"
+										value="#{masraflar.diger}">
+										<p:ajax update="outToplam" process="@this"></p:ajax>
+									</p:spinner>
+									<h:outputText value="TL" />
+								</p:column>
+
+								<h:outputLabel value="Açıklama:"
+									style="float:right;font-size:24px" />
+
+								<p:inputTextarea id="taAciklama" rows="10" cols="30"
+									maxlength="300" value="#{masraflar.aciklama}"
+									counterTemplate="{0} karakter kaldı." autoResize="false">
+								</p:inputTextarea>
+
+								<h:outputLabel value="TOPLAM:" for="outToplam"
+									style="position:relative"></h:outputLabel>
+								<h:outputText id="outToplam" value="#{masraflar.Topla()}" />
+
+								<f:facet name="footer">
+									<p:column>
+										<p:commandButton id="btnFormGonder" actionListener="#{masraflar.kaydet}" update="grwMsg"
+											value="Formu Gönder" style="float:right" />
+									</p:column>
+								</f:facet>
+							</p:panelGrid></td>
+					</tr>
+				</table>
+
+			</p:tab>
+			<p:tab title="Bekleyen Masraflar">
+				<td><p:panelGrid id="masPanel1" columns="2"
+						style="position: relative;margin:2px;border:none">
+						<f:facet name="header">
+							<h:outputText value="Bekleyen Masraflar" style="font-size:24px" />
+						</f:facet>
+						<p:dataTable id="cars" var="car" value="#{tableBean.carsSmall}"
+							filteredValue="#{tableBean.filteredCars}">
+							<p:columns value="#{tableBean.columns}" var="column"
+								columnIndexVar="colIndex" sortBy="#{car[column.property]}"
+								filterBy="#{car[column.property]}">
+								<f:facet name="header">  
+                #{column.header}  
+            </f:facet>  
+  
+            #{car[column.property]}  
+        </p:columns>
+
+						</p:dataTable>
+
+						<f:facet name="footer">
+							<p:commandButton value="Formu Gönder" style="float:right" />
+						</f:facet>
+					</p:panelGrid></td>
+
+			</p:tab>
+			<p:tab title="Onaylanan Masraflar">
+				<td><p:panelGrid id="masPanel2" columns="2"
+						style="position: relative;margin:2px;border:none">
+						<f:facet name="header">
+							<h:outputText value="Onaylanan Masraflar" style="font-size:24px" />
+						</f:facet>
+
+
+						<f:facet name="footer">
+							<p:commandButton value="Formu Gönder" style="float:right" />
+						</f:facet>
+					</p:panelGrid></td>
+			</p:tab>
+		</p:tabView>
+	</h:form>
+</h:body>
+</html>

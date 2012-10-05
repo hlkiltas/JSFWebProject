@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 5, 2012 2:18:38 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.masraflarwebapp.pojo.Yetki" table="yetki">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="kodu" type="string">
+            <column name="kodu" length="45" not-null="true" />
+        </property>
+        <property name="adi" type="string">
+            <column name="adi" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 5, 2012 2:18:38 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class  name="com.mycompany.masraflarwebapp.pojo.PersonelMasraf" table="personel_masraf">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="personelId" type="string">
+            <column name="personel_id" length="45" />
+        </property>
+        <property name="masrafTarihi" type="date">
+            <column name="masraf_tarihi" length="10" not-null="true" />
+        </property>
+        <property name="masrafAciklama" type="string">
+            <column name="masraf_aciklama" length="300" not-null="true" />
+        </property>
+        <property name="araOnayliMi" type="string">
+            <column name="ara_onayli_mi" length="5" />
+        </property>
+        <property name="tamOnayliMi" type="string">
+            <column name="tam_onayli_mi" length="5" />
+        </property>
+        <property name="araOnayTarihi" type="date">
+            <column name="ara_onay_tarihi" length="10" />
+        </property>
+        <property name="tamOnayTarihi" type="date">
+            <column name="tam_onay_tarihi" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

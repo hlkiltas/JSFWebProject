@@ -1,0 +1,62 @@
+delimiter $$
+
+CREATE DATABASE `masraflardb` /*!40100 DEFAULT CHARACTER SET utf8 */$$
+
+delimiter $$
+
+CREATE TABLE `personel` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ad` varchar(45) NOT NULL,
+  `soyad` varchar(45) NOT NULL,
+  `cinsiyet` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `unvani` varchar(45) NOT NULL,
+  `yetki_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
+
+delimiter $$
+
+CREATE TABLE `personel_masraf` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `personel_id` varchar(45) DEFAULT NULL,
+  `masraf_tarihi` date NOT NULL,
+  `masraf_aciklama` varchar(300) NOT NULL,
+  `ara_onayli_mi` varchar(5) DEFAULT NULL,
+  `tam_onayli_mi` varchar(5) DEFAULT NULL,
+  `ara_onay_tarihi` date DEFAULT NULL,
+  `tam_onay_tarihi` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8$$
+
+delimiter $$
+
+CREATE TABLE `personel_masraf_detay` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_ref_masraf_kodu` varchar(45) NOT NULL,
+  `tutar` varchar(45) DEFAULT NULL,
+  `fk_personel_masraf_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8$$
+
+delimiter $$
+
+CREATE TABLE `ref_masraf` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kodu` varchar(45) DEFAULT NULL,
+  `adi` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8$$
+
+delimiter $$
+
+CREATE TABLE `yetki` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kodu` varchar(45) NOT NULL,
+  `adi` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `kodu_UNIQUE` (`kodu`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8$$
+
+
+

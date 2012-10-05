@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+ <managed-bean>
+  <managed-bean-name>growlBean</managed-bean-name>
+  <managed-bean-class>com.mycompany.masraflarwebapp.GrowlBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+  <managed-property>
+   <property-name>text</property-name>
+   <property-class>java.lang.String</property-class>
+   <value/>
+  </managed-property>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>masraflar</managed-bean-name>
+  <managed-bean-class>com.mycompany.masraflarwebapp.Masraflar</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+  <managed-property>
+   <property-name>taxi</property-name>
+   <property-class>java.lang.Double</property-class>
+   <value>0.0</value>
+  </managed-property>
+  <managed-property>
+   <property-name>yemek</property-name>
+   <property-class>java.lang.Double</property-class>
+   <value>0.0</value>
+  </managed-property>
+  <managed-property>
+   <property-name>benzin</property-name>
+   <property-class>java.lang.Double</property-class>
+   <value>0.0</value>
+  </managed-property>
+  <managed-property>
+   <property-name>diger</property-name>
+   <property-class>java.lang.Double</property-class>
+   <value>0.0</value>
+  </managed-property>
+  <managed-property>
+   <property-name>aciklama</property-name>
+   <property-class>java.lang.String</property-class>
+   <value>Açıklama Yok...</value>
+  </managed-property>
+  <managed-property>
+   <property-name>tarih</property-name>
+   <property-class>java.util.Date</property-class>
+   <value/>
+  </managed-property>
+ </managed-bean>
+</faces-config>

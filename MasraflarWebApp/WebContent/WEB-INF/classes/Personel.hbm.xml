@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 5, 2012 2:18:38 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.mycompany.masraflarwebapp.pojo.Personel" table="personel">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="ad" type="string">
+            <column name="ad" length="45" not-null="true" />
+        </property>
+        <property name="soyad" type="string">
+            <column name="soyad" length="45" not-null="true" />
+        </property>
+        <property name="cinsiyet" type="string">
+            <column name="cinsiyet" length="45" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" not-null="true" />
+        </property>
+        <property name="unvani" type="string">
+            <column name="unvani" length="45" not-null="true" />
+        </property>
+        <property name="yetkiId" type="int">
+            <column name="yetki_id" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
