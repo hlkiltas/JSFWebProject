@@ -13,6 +13,8 @@ public class Kullanici {
 
 	public String getKullaniciAdi() {
 		return kullaniciAdi;
+		
+		
 	}
 
 	public void setKullaniciAdi(String kullaniciAdi) {
